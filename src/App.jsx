@@ -20,22 +20,23 @@ const ProductIcon=({cat,size=40})=>{
   return <svg style={s} viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke={c} strokeWidth="2.5"/></svg>;
 };
 
-/* LOGO — Solventum two-arc S mark */
+/* LOGO — Solventum real S mark */
+const SOLVENTUM_S = "M70.89,34.04c0-9.29-6.69-15.2-16.17-15.2s-16.7,6.83-16.7,16.89,7.22,17.08,19.29,17.08h20.4c28.77,0,47.49,19.49,47.49,44.89s-19.29,44.89-45.66,44.89-45.66-18.57-45.66-44.17c0-9.29,3.18-19.1,7.99-26.37h10.97c-5.58,7.22-8.52,16.31-8.52,25.6,0,20.21,14.67,35.27,35.27,35.27s35.27-15.01,35.27-35.27-14.67-35.27-37.1-35.27h-20.21c-20.26,.05-29.73-12.03-29.73-26.66s12.08-26.37,26.9-26.37c16.31,0,26.37,10.97,26.37,23.77,0,1.54-.19,3.61-.67,5h-10.1c.34-1.11,.58-2.98,.58-4.09Z";
 function SolventumIcon({size=40}){
   return (
-    <svg width={size} height={size} viewBox="0 0 48 48" fill="none">
-      <path d="M34 18 A10 10 0 0 0 14 18" stroke={B.green} strokeWidth="12" strokeLinecap="round" fill="none"/>
-      <path d="M14 30 A10 10 0 0 1 34 30" stroke={B.green} strokeWidth="12" strokeLinecap="round" fill="none"/>
+    <svg width={size} height={size} viewBox="0 0 150 150" fill="none">
+      <path d={SOLVENTUM_S} fill={B.green}/>
     </svg>
   );
 }
 function SolventumFullLogo({height=30}){
   const w = height * 5.5;
   return (
-    <svg width={w} height={height} viewBox="0 0 264 48" fill="none">
-      <path d="M34 18 A10 10 0 0 0 14 18" stroke={B.green} strokeWidth="12" strokeLinecap="round" fill="none"/>
-      <path d="M14 30 A10 10 0 0 1 34 30" stroke={B.green} strokeWidth="12" strokeLinecap="round" fill="none"/>
-      <text x="56" y="34" fill={B.white} fontFamily="'Outfit',sans-serif" fontWeight="500" fontSize="22" letterSpacing="0.3">solventum</text>
+    <svg width={w} height={height} viewBox={`0 0 ${w} ${height}`} fill="none">
+      <svg x="0" y="0" width={height} height={height} viewBox="0 0 150 150">
+        <path d={SOLVENTUM_S} fill={B.green}/>
+      </svg>
+      <text x={height+6} y={height*0.72} fill={B.white} fontFamily="'Outfit',sans-serif" fontWeight="400" fontSize={height*0.6} letterSpacing="0.5">solventum</text>
     </svg>
   );
 }
@@ -188,7 +189,7 @@ export default function App(){
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <style>{`@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}@keyframes slideSheet{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes pulse{0%,100%{opacity:.25;transform:scale(1)}50%{opacity:.9;transform:scale(1.25)}}@keyframes glow{0%,100%{box-shadow:0 0 20px rgba(0,230,118,0.12)}50%{box-shadow:0 0 28px rgba(0,230,118,0.28)}}*{margin:0;padding:0;box-sizing:border-box}::-webkit-scrollbar{width:0;height:0}input:focus,button:focus,select:focus{outline:none}input::placeholder{color:rgba(255,255,255,0.28)}`}</style>
 
-    <header style={{position:"sticky",top:0,zIndex:60,padding:"0 32px",height:60,display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(0,38,42,0.95)",backdropFilter:"blur(20px)",borderBottom:`1px solid ${B.divider}`,flexShrink:0}}><SolventumFullLogo height={26}/><div style={{display:"flex",alignItems:"center",gap:12}}><button onClick={()=>{setSettings(true);setKeyInput(apiKey);setShowKey(false);}} style={{background:"none",border:"none",cursor:"pointer",padding:0,display:"flex"}}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={apiKey?B.green:B.t3} strokeWidth="1.8" strokeLinecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button><div style={{width:34,height:34,borderRadius:"50%",background:B.green,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Outfit',sans-serif",fontSize:12.5,fontWeight:700,color:B.deep}}>DR</div></div></header>
+    <header style={{position:"sticky",top:0,zIndex:60,padding:"0 32px",height:60,display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(0,38,42,0.95)",backdropFilter:"blur(20px)",borderBottom:`1px solid ${B.divider}`,flexShrink:0}}><SolventumFullLogo height={26}/><div style={{display:"flex",alignItems:"center",gap:12}}><button onClick={()=>{setSettings(true);setKeyInput(apiKey);setShowKey(false);}} style={{background:"none",border:"none",cursor:"pointer",padding:0,display:"flex"}}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={apiKey?B.green:B.t2} strokeWidth="1.8" strokeLinecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button><div style={{width:34,height:34,borderRadius:"50%",background:B.green,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Outfit',sans-serif",fontSize:12.5,fontWeight:700,color:B.deep}}>DR</div></div></header>
 
     <div style={{display:"flex",flex:1,overflow:"hidden"}}>
     <aside style={{width:220,position:"sticky",top:60,height:"calc(100vh - 60px)",display:"flex",flexDirection:"column",background:"rgba(0,38,42,0.7)",borderRight:`1px solid ${B.divider}`,flexShrink:0,overflowY:"auto"}}>
